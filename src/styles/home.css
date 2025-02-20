@@ -1,0 +1,45 @@
+.container-body {
+    max-width: 90%;
+    margin: 50px 10%;
+    display: grid;
+    grid-template-areas: 
+        "survey content"
+        "description description";
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: auto auto;
+    gap: 10px;
+}
+
+.survey {
+    grid-area: survey;
+    align-items: center;
+    margin-left: 15%;
+}
+.survey h2{
+    font-size: 2.5rem;
+    padding: 10px 0;
+}
+
+.survey p{
+    padding: 25px 0;
+    font-size: 1.2rem;
+}
+
+.content {
+    grid-area: content;
+}
+
+.description {
+    margin-top: 50px;
+    grid-area: description;
+    padding: 0 25%;
+    text-align: center;
+}
+.description .quote{
+    font-style: italic;
+    font-size: 1.5rem;
+}
+.description img{
+    border-radius: 100px;
+    
+}

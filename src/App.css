@@ -1,0 +1,114 @@
+/* App.module.css */
+
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Header.module.css */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1%;
+}
+
+.header h2 {
+  color: #3f51b5;
+}
+
+.header nav ul {
+  display: flex;
+  list-style-type: none;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.header nav ul li {
+  padding: 10px;
+}
+
+.link_section {
+  padding-left: 2%;
+}
+
+.login {
+  background-color: #ffffff;
+  color: #000000;
+  font-weight: bold;
+  font-size: 0.95rem;
+  padding: 10px 20px;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+}
+
+.login:hover {
+  color: #5f4cac;
+}
+
+a {
+  text-decoration: none;
+}
+
+.header nav ul li a {
+  font-size: 0.95rem;
+  text-decoration: none;
+  font-weight: 500;
+  color: #000000;
+  padding: 5px 0;
+  position: relative;
+  transition: color 0.3s ease-in-out;
+}
+
+.header nav ul li a::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  background: #5f4cac;
+  bottom: -3px;
+  left: 0;
+  transition: width 0.3s ease-in-out;
+}
+
+.header nav ul li a:hover {
+  color: #5f4cac;
+}
+
+.header nav ul li a:hover::before {
+  width: 100%;
+}
+.button {
+  background-color: #6b4fe0;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 0.95rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.button:hover {
+  background-color: #543fc0;
+}
+/* Footer.module.css */
+.container-footer {
+  background-color: #f4f4fc;
+  padding: 20px 0;
+  text-align: center;
+}
+.container-footer-copyright {
+  background-color: #ececec;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.container-footer p {
+  font-size: 1rem;
+}
