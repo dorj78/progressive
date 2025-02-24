@@ -1,0 +1,113 @@
+.container-sign {
+  width: clamp(20rem, 80%, 50rem); /* Responsive width with min/max */
+  margin: clamp(1.5rem, 5vh, 3rem) auto; /* Responsive vertical margin */
+  padding: clamp(1.5rem, 4vw, 2.5rem); /* Responsive padding */
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.container-sign label {
+  display: block;
+  margin-bottom: 0.3125rem; /* ~5px */
+  font-size: clamp(0.75rem, 2vw, 0.875rem); /* Responsive font size */
+  color: #555;
+}
+
+.container-sign input,
+.container-sign select {
+  width: 100%;
+  padding: clamp(0.5rem, 1.5vw, 0.625rem); /* Responsive padding */
+  margin-bottom: clamp(0.75rem, 2vw, 0.9375rem); /* Responsive margin */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: clamp(0.75rem, 2vw, 0.875rem); /* Responsive font size */
+  box-sizing: border-box; /* Ensures padding stays within width */
+}
+
+.container-sign input:focus,
+.container-sign select:focus {
+  outline: none;
+  border-color: #6b4fe0;
+  box-shadow: 0 0 5px rgba(255, 64, 226, 0.3);
+}
+
+.form-sections {
+  display: flex;
+  justify-content: space-between;
+  gap: clamp(0.75rem, 2vw, 1.25rem); /* Responsive gap */
+}
+
+.section-left,
+.section-right {
+  width: 48%; /* Half width for larger screens */
+}
+
+.container-sign h3 {
+  font-size: clamp(1.25rem, 3vw, 1.5rem); /* Responsive heading */
+  color: #6b4fe0;
+  margin-bottom: clamp(0.75rem, 2vw, 0.9375rem);
+  font-weight: bold;
+}
+
+.button-container {
+  width: clamp(6rem, 25%, 10rem); /* Responsive button width */
+  display: flex;
+  justify-content: center; /* Center buttons */
+  margin: clamp(0.5rem, 1vw, 0.75rem) auto 0; /* Responsive margin */
+}
+
+.container-sign p {
+  text-align: center;
+  margin-top: clamp(0.75rem, 2vw, 0.9375rem);
+  font-size: clamp(0.75rem, 2vw, 0.875rem);
+  color: #666;
+}
+
+.container-sign a {
+  color: #6b4fe0;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.container-sign a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .container-sign {
+      width: clamp(18rem, 85%, 40rem); /* Slightly wider on tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .container-sign {
+      width: 90%;
+      padding: clamp(1rem, 3vw, 1.5rem);
+  }
+
+  .form-sections {
+      flex-direction: column;
+  }
+
+  .section-left,
+  .section-right {
+      width: 100%; /* Stack sections on smaller screens */
+  }
+
+  .button-container {
+      width: 100%; /* Full width for buttons */
+  }
+}
+
+@media (max-width: 480px) {
+  .container-sign {
+      padding: 1rem;
+  }
+
+  .container-sign h3 {
+      font-size: 1.125rem;
+  }
+}

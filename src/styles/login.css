@@ -1,0 +1,101 @@
+.container-login {
+    width: min(90%, 400px); /* Limits width to 90% or 400px, whichever is smaller */
+    margin: clamp(1rem, 5vh, 3rem) auto; /* Responsive vertical margin */
+    padding: clamp(1.5rem, 4vw, 2.5rem); /* Responsive padding */
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+  }
+  
+  .container-login label {
+    display: block;
+    margin-bottom: 0.3125rem; /* ~5px at 16px base font size */
+    font-size: clamp(0.75rem, 2.5vw, 0.875rem); /* Responsive font size */
+    color: #555;
+  }
+  
+  .container-login input {
+    width: 100%;
+    padding: clamp(0.5rem, 1.5vw, 0.625rem); /* Responsive padding */
+    margin-bottom: clamp(0.75rem, 2vw, 0.9375rem); /* Responsive margin */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: clamp(0.75rem, 2.5vw, 0.875rem); /* Responsive font size */
+    box-sizing: border-box; /* Ensures padding doesn’t increase width */
+  }
+  
+  .container-login input:focus {
+    outline: none;
+    border-color: #6b4fe0;
+    box-shadow: 0 0 5px rgba(255, 64, 226, 0.3);
+  }
+  
+  .button-container {
+    margin-top: clamp(0.5rem, 1vw, 0.75rem); /* Responsive margin */
+    display: flex;
+    justify-content: center; /* Centers buttons horizontally */
+    gap: 1rem; /* Adds spacing between buttons */
+  }
+  
+  .container-login p {
+    text-align: center;
+    margin-top: clamp(0.75rem, 2vw, 0.9375rem); /* Responsive margin */
+    font-size: clamp(0.75rem, 2.5vw, 0.875rem); /* Responsive font size */
+    color: #666;
+  }
+  
+  .container-login a {
+    color: #6b4fe0;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .container-login a:hover {
+    text-decoration: underline;
+  }
+  
+  .notification {
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    text-align: center;
+    opacity: 1; /* Remove animation for testing */
+    transform: translateY(0); /* Remove animation for testing */
+    background-color: #f8d7da; /* Default red for testing */
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+  }
+  
+  .notification.success {
+    background-color: #d4edda; /* Light green for success */
+    color: #155724; /* Dark green text */
+    border: 1px solid #c3e6cb;
+  }
+  
+  .notification.error {
+    background-color: #f8d7da; /* Light red for error */
+    color: #721c24; /* Dark red text */
+    border: 1px solid #f5c6cb;
+  }
+  
+  /* Media Query for Larger Screens */
+  @media (min-width: 768px) {
+    .container-login {
+      width: min(50%, 400px); /* Wider on tablets and desktops */
+    }
+  }
+  
+  /* Media Query for Smaller Screens */
+  @media (max-width: 480px) {
+    .container-login {
+      width: 90%; /* Full width on small screens */
+      padding: 1rem; /* Reduced padding */
+    }
+  
+    .button-container {
+      flex-direction: column; /* Stack buttons vertically */
+      gap: 0.5rem; /* Smaller gap */
+    }
+  }

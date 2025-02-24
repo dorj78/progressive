@@ -1,38 +1,43 @@
-import React from "react";
+import {React} from "react";
+import '../styles/surveys.css'
+import stress from '../image/stress.png'
+import hevshinj from '../image/hevshinj.png'
+import psychology from '../image/psychology.png'
+import {Link} from 'react-router-dom'
 
-const Home = () =>{
-    return (
-        <div className="container">
-            <div className="container-body">
-            <section className="intro">
-                <p>Research on stress and health is growing at a rapid rate. Each year important new discoveries are being made about the pathways through which stress impacts physiological functioning and disease. The following list is in no way exhaustsive; rather the purpose is to highlight some of the current major findings.</p>
-            </section>
+const Survey = () => {
+    const cards = [
+        {
+          title: "Олон улсын стрессийн судалгаа",
+          img: stress,
+          text: "Олон улсын стрессийн судалгаагаар ажлын байр, санхүүгийн байдал, нийгмийн харилцаа зэрэг хүчин зүйлс нь стрессийн түвшинд ихээхэн нөлөөлдөг болохыг тогтоох зорилготой.",
+          route:'/survey/isma'
+        },
+        {
+          title: "Эрүүл мэндийн хэв маягийн судалгаа",
+          img: hevshinj,
+          text: "Эрүүл мэндийн хэв маягийн судалгаагаар хооллолт, дасгал хөдөлгөөн, унтах цаг зэрэг хүчин зүйлсийн эрүүл мэндэд нөлөөлөхийг судлах зорилготой."
+        },
+        {
+          title: "Сэтгэлзүйн судалгаа",
+          img: psychology,
+          text: "Сэтгэлзүйн судалгаагаар сэтгэл санааны эрүүл мэнд, стрессийн менежмент, нийгмийн дэмжлэгийн нөлөөллийг тодорхойлох зорилготой."
+        },
+      ];
 
-            <section id="research">
-                <h2>Featured Research</h2>
-                <div className="card">
-                    <h3>Research Title 1</h3>
-                    <p>Short description of the research.</p>
-                    <a href="#" className="button">Read More</a>
+  return (
+    <div className="container-surveys">
+        {cards.map((card)=>(
+            <Link to={card.route}>
+                <div className="card-container">
+                    <h3>{card.title}</h3>
+                    <img src={card.img} alt={card.title} />
+                    <p>{card.text}</p>
                 </div>
-                <div className="card">
-                    <h3>Research Title 2</h3>
-                    <p>Short description of the research.</p>
-                    <a href="#" className="button">Read More</a>
-                </div>
-            </section>
+            </Link>
+        ))}
+    </div>
+  );
+};
 
-            <section id="resources">
-                <h2>Resources</h2>
-                <ul>
-                    <li><a href="#">Мэдээ мэдээлэл</a></li>
-                    <li><a href="#">Статистик мэдээ</a></li>
-                    <li><a href="#">Research Tools</a></li>
-                </ul>
-            </section>
-            </div>
-        </div>
-    )
-}
-
-export default Home;
+export default Survey;

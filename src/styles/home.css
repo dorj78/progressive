@@ -1,28 +1,27 @@
 .container-body {
-    max-width: 90%;
-    margin: 50px 10%;
+    max-width: clamp(20rem, 90%, 75rem); /* Responsive max-width */
+    margin: clamp(1.5rem, 5vh, 3rem) auto; /* Responsive margin */
     display: grid;
-    grid-template-areas: 
+    grid-template-areas:
         "survey content"
         "description description";
-    grid-template-columns: 1fr 1fr; 
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
-    gap: 10px;
+    gap: clamp(0.5rem, 1vw, 0.625rem); /* Responsive gap */
+    padding: 0 clamp(1rem, 2%, 2rem); /* Responsive horizontal padding */
 }
 
 .survey {
     grid-area: survey;
-    align-items: center;
-    margin-left: 15%;
-}
-.survey h2{
-    font-size: 2.5rem;
-    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: clamp(0rem, 15%, 5rem); /* Responsive margin */
 }
 
-.survey p{
-    padding: 25px 0;
-    font-size: 1.2rem;
+.survey p {
+    padding: clamp(1rem, 3vw, 1.5625rem) 0;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
 }
 
 .content {
@@ -30,16 +29,60 @@
 }
 
 .description {
-    margin-top: 50px;
+    margin-top: clamp(1.5rem, 5vh, 3rem); /* Responsive margin */
     grid-area: description;
-    padding: 0 25%;
+    padding: 0 clamp(5%, 25%, 15rem); /* Responsive padding */
     text-align: center;
 }
-.description .quote{
+
+.description .quote {
     font-style: italic;
-    font-size: 1.5rem;
+    font-size: clamp(1.125rem, 3vw, 1.5rem); /* Responsive font size */
 }
-.description img{
+
+.description img {
     border-radius: 100px;
-    
+    max-width: 100%; /* Ensure image scales responsively */
+    height: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .container-body {
+        grid-template-columns: 1fr; /* Single column on tablets */
+        grid-template-areas:
+            "survey"
+            "content"
+            "description";
+    }
+
+    .survey {
+        margin-left: 0; /* Reset margin for centered layout */
+        align-items: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .container-body {
+        max-width: 95%;
+        padding: 0 1rem;
+    }
+
+    .description {
+        padding: 0 5%;
+    }
+}
+
+@media (max-width: 480px) {
+    .survey h2 {
+        font-size: 1.25rem;
+    }
+
+    .survey p {
+        font-size: 0.875rem;
+    }
+
+    .description .quote {
+        font-size: 1rem;
+    }
 }
