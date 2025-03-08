@@ -6,6 +6,8 @@ import Home from './components/home.jsx';
 import Login from './components/login.jsx';
 import Sign from './components/signup.jsx';
 import ISMA from './components/survey_isma.jsx';
+import Fatigue from './components/survey_fatigue.jsx';
+import Insomnia from './components/survey_insomnia.jsx';
 import Surveys from './components/survey.jsx';
 import {Link} from 'react-router-dom'
 import './App.css';
@@ -62,6 +64,26 @@ function App() {
           element={
             isLoggedIn ? (
               <ISMA currentUser={currentUser}/>
+            ) : (
+              <LoginPrompt />
+            )
+          }
+        />
+        <Route
+          path="/survey/fatigue"
+          element={
+            isLoggedIn ? (
+              <Fatigue currentUser={currentUser}/>
+            ) : (
+              <LoginPrompt />
+            )
+          }
+        />
+        <Route
+          path="/survey/insomnia"
+          element={
+            isLoggedIn ? (
+              <Insomnia currentUser={currentUser}/>
             ) : (
               <LoginPrompt />
             )

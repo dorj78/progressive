@@ -34,17 +34,18 @@ export const createUser = async (user) => {
 };
 
 /**
- * Submits survey responses to the backend.
+ * Submits survey responses to the backend based on survey type.
+ * @param {string} surveyType - Type of survey ("isma", "insomnia", "fatigue")
  * @param {Object} submission - Survey submission data { responses: { [key: string]: number }, user_id: number }
  * @returns {Promise<Object>} Response containing question_mn
  * @throws {Error} If the request fails
  */
-export const submitSurvey = async (submission) => {
+export const submitSurvey = async (surveyType, submission) => {
   try {
-    const response = await axios.post(`${API_URL}/survey/submit`, submission);
+    const response = await axios.post(`${API_URL}/survey/${surveyType}`, submission);
     return response.data;
   } catch (error) {
-    console.error("Error submitting survey:", error);
+    console.error(`Error submitting ${surveyType} survey:`, error);
     throw error;
   }
 };

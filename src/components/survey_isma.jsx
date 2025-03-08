@@ -2,120 +2,11 @@ import React, { useState } from "react";
 import "../styles/survey.css";
 import { useNavigate } from "react-router-dom";
 import stress from "../image/stress.png";
-import { submitSurvey } from "../api"; // Adjust path based on your project structure
+import { submitSurvey } from "../api";
+import surveyData from "../components/questions.json"
 
 const Survey_isma = ({ currentUser }) => {
-  const questions = [
-    {
-      id: "sleep_enough",
-      question: "Та хангалттай унтаж амарсан ч ядарч сульдсан мэдрэмж төрдөг үү?",
-    },
-    {
-      id: "appetite_change",
-      question:
-        "Таны хоолны дуршил өөрчлөгдсөн, хэвийн үед иддэгээс ч их буюу бага иддэг болсон уу?",
-    },
-    {
-      id: "guilt_feeling",
-      question: "Танд гэмшил эсвэл буруутай юм шиг мэдрэмж төрдөг үү?",
-    },
-    {
-      id: "overthinking",
-      question:
-        "Та тайван амар байж чадахгүй үргэлж ямар нэг зүйлд санаа зовнидог уу?",
-    },
-    {
-      id: "focus_memory",
-      question:
-        "Таны анхаарал төвлөрөл болон ой тогтоолтондоо сэтгэл ханамжгүй байдаг уу?",
-    },
-    {
-      id: "no_hobby_time",
-      question:
-        "Таны дуртай зүйлс, хобби хийх цаг зав гарахгүй үе олон байна уу?",
-    },
-    {
-      id: "muscle_pain",
-      question:
-        "Таны булчин өвддөг, толгой, нуруу болон биеийн бусад хэсэг өвдөх шинж илэрдэг үү?",
-    },
-    {
-      id: "addiction",
-      question: "Та архи, никотин зэрэг зүйлс хэрэглэх нь ихэссэн үү?",
-    },
-    {
-      id: "work_at_home",
-      question: "Шөнө оройтож, гэртээ ажил хийдэг үү?",
-    },
-    {
-      id: "enough_time",
-      question: "Та өөртөө хангалттай цагтай гэж боддог уу?",
-    },
-    {
-      id: "ignore_problems",
-      question:
-        "Та асуудлуудаа үл тоомсорлож, огт анхаарал хандуулдаггүй байдалтай байна уу?",
-    },
-    {
-      id: "perfectionist",
-      question: "Та бүх зүйлийг төгс байлгахыг хүсдэг үү?",
-    },
-    {
-      id: "bad_time_estimate",
-      question:
-        "Та ажлын цагийг дутуу тооцоолдог эсвэл илүү зарцуулдаг уу?",
-    },
-    {
-      id: "overwhelmed",
-      question: "Та ажилдаа дарагдаж байна вэ?",
-    },
-    {
-      id: "low_self_esteem",
-      question: "Таны өөртөө итгэх итгэл буурсан мэт санагддаг уу?",
-    },
-    {
-      id: "impatient",
-      question:
-        "Та бусад хүмүүстэй харьцахдаа ихэвчлэн тэвчээргүй, хурдан уурладаг болсон уу?",
-    },
-    {
-      id: "hurried",
-      question: "Та яг л гүйж байгаа юм шиг санагддаг уу?",
-    },
-    {
-      id: "road_rage",
-      question:
-        "Та жолоо барихдаа уур бухимдалтай, түрэмгий байдалтай болж, замын хөдөлгөөнд оролцохдоо бусад жолооч нарын эсрэг уурлаж бухимддаг уу?",
-    },
-    {
-      id: "competitive",
-      question: "Та бусадтай өрсөлдөхийг хүсдэг болсон уу?",
-    },
-    {
-      id: "critical",
-      question:
-        "Танд бусдын талаар дүгнэх, шүүмжлэх байдал ихэссэн үү?",
-    },
-    {
-      id: "distracted",
-      question: "Та анхаарал сарнидаг болсон уу?",
-    },
-    {
-      id: "low_libido",
-      question:
-        "Таны бэлгийн дур хүсэл (либидо) буурсан мэт санагдаж байна уу?",
-    },
-    {
-      id: "teeth_grinding",
-      question: "Та шүдээ хавирдаг болсон уу?",
-    },
-    {
-      id: "performance_drop",
-      question:
-        "Таны гүйцэтгэл өмнөхөөсөө сайн биш болсон уу?",
-    },
-  ];
-
+  const questions = surveyData.isma;
   const Result = () => {
     return (
       <div className="result">
@@ -148,7 +39,6 @@ const Survey_isma = ({ currentUser }) => {
         return;
       }
 
-      // Filter responses to match QUESTIONS list and ensure integers
       const cleanedResponses = Object.fromEntries(
         questions.map(q => [q.id, responses[q.id] || 0])
       );
@@ -158,7 +48,7 @@ const Survey_isma = ({ currentUser }) => {
         user_id: parseInt(currentUser.user_id, 10),
       };
 
-      const response = await submitSurvey(submission);
+      const response = await submitSurvey("isma", submission);
       setResult(response.question_mn);
     } catch (error) {
       console.error("Error submitting survey:", error.response?.data || error.message);
